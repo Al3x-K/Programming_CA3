@@ -5,7 +5,7 @@ import java.util.Stack;
  *  Name: Aleksandra Kail
  *  Class Group: GD2B
  */
-public class CA3_Question1
+public class CA3_Question1 extends Pair
 {
     public static void runSimulation()
     {
