@@ -33,21 +33,50 @@ public class CA3_Question2 {
         }
     }
 
-    private static void fill(int r, int c, int[][] arr) {
+    private static void fill(int r, int c, int[][] arr)
+    {
         Stack<Pair> cell = new Stack<Pair>();
         int count = 1;
+        Pair current = new Pair(3,7);
+        //current = cell.pop();
+        int x = current.getX();
+        int y = current.getY();
+        arr[x][y] = count;
         while (!cell.isEmpty())
         {
-            Pair current = cell.pop();
-            int x = current.getX();
-            int y = current.getY();
-            arr[x][y] = count;
+
+            //NORTH
+            if(x > 0 && arr[x-1][y] == 0)
+            {
+                arr[x-1][y] = count;
+                cell.push(new Pair(x-1,y));
+            }
+            //EAST
+            if(y<9 && arr[x][y+1] == 0)
+            {
+                arr[x][y+1] = count;
+                cell.push(new Pair(x,y+1));
+            }
+            //SOUTH
+            if(x > 0 && arr[x+1][y] == 0)
+            {
+                arr[x+1][y] = count;
+                cell.push(new Pair(x+1,y));
+            }
+            //WEST
+            if(y>0 && arr[x][y-1] == 0)
+            {
+                arr[x][y-1] = count;
+                cell.push(new Pair(x,y-1));
+            }
             count++;
         }
     }
 
     public static void start() {
         int[][] arr = floodFillStart();
+        display(arr);
+        fill(10,10,arr);
         display(arr);
     }
 
