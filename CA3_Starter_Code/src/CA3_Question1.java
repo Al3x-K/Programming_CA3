@@ -22,31 +22,29 @@ public class CA3_Question1 extends Pair
             System.out.print("Choose the option: ");
             num = keyboard.nextInt();
             currentNum = num;
-            if(num >= 0)
+            if(num > 0)
             {
                 driveway.push(num);
-                System.out.println("The driveway -> " +driveway);
+                System.out.println("The driveway -> " + driveway);
             }
             else if(num < 0)
             {
                 num = num * -1;
                 if(driveway.contains(num))
                 {
-                    while(!driveway.isEmpty())
-                    {
+
                         int n = driveway.pop();
-                        if(num != n)
+                        if (num != n)
                         {
                             street.push(n);
                             System.out.println("The street -> " + street);
-                            break;
                         }
-                        while (!street.isEmpty())
-                        {
+
+                        while (!street.isEmpty()) {
                             driveway.push(street.pop());
-                            System.out.println("The driveway -> " +driveway);
+                            System.out.println("The driveway -> " + driveway);
                         }
-                    }
+
                 }
             }
         } while(num != 0);
