@@ -16,33 +16,28 @@ public class CA3_Question4
      */
     public static boolean validate(String filename) throws FileNotFoundException
     {
+        boolean valid = false;
         Scanner scanner = new Scanner(new File(filename)); //Read tags from the file
         String [] tags = scanner.nextLine().split(" "); //puts tags into the array and split them by space
 
         Stack<String> stack = new Stack<>(); //a stack for opening tags
-
+        int index = tags.length - 1;
         for(String tag : tags) //goes through each tag in the array
         {
+            stack.push(tag);
             if(tag.startsWith("</")) //checks if it's a closing tag
             {
-                if(stack.isEmpty()) //there's a closing tag without the opening one
-                {
-                    return false;
-                }
-
                 String opTag = stack.pop();
                 //checks if the closing tag matches the tag at the top of the stack
-                if(!tag.substring(2, tag.length() - 1).equals(opTag.substring(1)))
+                if(!tag.substring(2, tag.length() - 1).equals(opTag.substring(1, tag.length())))
                 {
-                    return false;
-                }
-                else
-                {
-                    stack.push(tag); //if it's an opening tag it gets pushed onto the stack
+                    stack.pop();
+                    if(stack.isEmpty())
+                        valid = true;
                 }
             }
         }
-        return true; //if the stack is empty at the end, that means that all the tags are properly nested
+        return valid;
     }
 
     /*
@@ -55,7 +50,7 @@ public class CA3_Question4
      */
     public static void main(String[] args) throws FileNotFoundException
     {
-        String[] files = {"tags_valid.txt", "tags_invalid.txt"};
+        String[] files = {"tags_valid.txt","tags_invalid.txt"};
 
         for(String fName: files)
         {
