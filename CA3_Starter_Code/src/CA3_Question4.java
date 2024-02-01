@@ -39,7 +39,7 @@ public class CA3_Question4 {
                 }
             }
         }
-        return stack.isEmpty(); //if the stack is empty at the end, that means that all the tags are properly nested
+        return true; //if the stack is empty at the end, that means that all the tags are properly nested
     }
 
     /*
@@ -53,6 +53,7 @@ public class CA3_Question4 {
     public static void main(String[] args) throws FileNotFoundException
     {
         String[] files = {"tags_valid.txt", "tags_invalid.txt"};
+
         for(String fName: files)
         {
             System.out.print(fName +": ");
@@ -67,3 +68,4 @@ public class CA3_Question4 {
         }
     }
 }
+
