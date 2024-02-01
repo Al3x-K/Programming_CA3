@@ -6,7 +6,10 @@ import java.util.Stack;
  *  Name:Aleksandra Kail
  *  Class Group: GD2B
  */
-public class CA3_Question4 {
+//NOTE ->
+//ask the teacher cuz it always returns invalid and i don't know why
+public class CA3_Question4
+{
 
     /*
         filename: name of the file to test.
