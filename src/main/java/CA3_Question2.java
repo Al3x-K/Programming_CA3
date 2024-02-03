@@ -1,6 +1,5 @@
 import java.util.Scanner;
 import java.util.Stack;
-
 /**
  *  Name: Aleksandra Kail
  *  Class Group: GD2B
@@ -76,7 +75,7 @@ public class CA3_Question2
                     stack.push(new Pair(row, col - 1));
                 }
             } //NOTE ->  "10" in the if statements could be replaced with a variable
-              // but in this example the array has a fixed size so the number can be used
+            // but in this example the array has a fixed size so the number can be used
         }
     }
 

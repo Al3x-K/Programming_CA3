@@ -1,4 +1,5 @@
-public class DistanceTo implements Comparable<DistanceTo> {
+public class DistanceTo implements Comparable<DistanceTo>
+{
     private String target;
     private int distance;
     public DistanceTo(String city, int dist)
