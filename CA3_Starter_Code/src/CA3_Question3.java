@@ -6,21 +6,23 @@ import java.util.Scanner;
 import java.util.TreeMap;
 
 /**
- *  Name:
- *  Class Group:
+ *  Name: Aleksandra Kail
+ *  Class Group: GD2B
  */
 
 public class CA3_Question3
 {
-    public static void readFile(String fileName) throws FileNotFoundException {
+    public static void readFile(String fileName) throws FileNotFoundException
+    {
+        //open the file
         Scanner fin = new Scanner(new File(fileName));
+        //creates map storing identifiers and their occurrences
+        Map<String, HashSet<Integer>> map = new TreeMap<>();
 
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException
+    {
         readFile("src/CA3_Question1.java");
-
-        Map<String, HashSet<Integer>> map = new TreeMap<>();
-
     }
 }
