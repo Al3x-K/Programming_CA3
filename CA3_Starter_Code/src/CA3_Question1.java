@@ -54,7 +54,8 @@ public class CA3_Question1
                     }
                     System.out.println("Driveway after moving cars -> " + driveway);
                 }
-                else {
+                else
+                {
                     System.out.println("Car " + num + " not found in the driveway.");
                 }
             }

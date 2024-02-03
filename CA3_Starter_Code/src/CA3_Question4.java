@@ -6,8 +6,6 @@ import java.util.Stack;
  *  Name:Aleksandra Kail
  *  Class Group: GD2B
  */
-//NOTE ->
-//ask the teacher cuz it always returns invalid and i don't know why
 public class CA3_Question4
 {
 
