@@ -13,7 +13,7 @@ public class CA3_Question8
     {
         String equation;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter equation: ");
+        System.out.print("Enter equation: ");
         equation = scanner.nextLine().trim();
 
         //evaluate the equation and print the result
@@ -73,11 +73,44 @@ public class CA3_Question8
 
     public static void performOperation(Stack<Double> numbers, Stack<Character> operators)
     {
+        double num2 = numbers.pop(); //pop the 2nd number
+        double num1 = numbers.pop(); //pop the 1st number
+        char operator = operators.pop(); //pop the operator
+        double result = 0.0;
 
+        //Performs adequate operation based on the operator
+        //add, subtract, multiply, divide
+        switch (operator)
+        {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case'/':
+                result = num1 / num2;
+                break;
+        }
+        numbers.push(result); //push the result onto the stack
     }
 
     public static int precedence(char operator)
     {
-        return operator;
+        if(operator == '+' || operator == '-')
+        {
+            return 1;
+        }
+        else if (operator == '*' || operator == '/')
+        {
+            return 2;
+        }
+        else
+        {
+            return 0; //'(' has the lowest precedence out of all operators
+        }
     }
 }
