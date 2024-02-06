@@ -19,4 +19,12 @@ public class DistanceTo implements Comparable<DistanceTo>
     {
         return distance - other.distance;
     }
+
+    @Override
+    public String toString() {
+        return "DistanceTo{" +
+                "target='" + target + '\'' +
+                ", distance=" + distance +
+                '}';
+    }
 }

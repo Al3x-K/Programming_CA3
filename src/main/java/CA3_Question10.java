@@ -15,10 +15,10 @@ public class CA3_Question10
         {
             //read input from the file
             Scanner scanner = new Scanner(new File("routes.txt"));
-            String startP = scanner.next(); //starting point for calculating the distance
+            String startP = "Pendleton";//starting point for calculating the distance
 
             //map for direct connections between cities
-            Map<String, TreeSet<DistanceTo>> connections = new HashMap<>();
+            Map<String, Set<DistanceTo>> connections = new HashMap<>();
 
             //read routes from the file and put them into the map
             while(scanner.hasNext())
@@ -26,6 +26,7 @@ public class CA3_Question10
                 //the variables in the file are in a form of:
                 //city1 city2 distance
                 String line = scanner.nextLine();
+                System.out.println(line);
                 String[] data = line.split(" ");
                 String city1 = data[0];
                 String city2 = data[1];
@@ -38,13 +39,13 @@ public class CA3_Question10
                 //if city1 is already in the map, it returns the TreeSet with its connections
                 //if city1 is not in the map, it creates a new TreeSet for it
                 //then it adds a new DistanceTo object to the TreeSet that it got from the 1st part
-                connections.computeIfAbsent(city1, k -> new TreeSet<>()).add(new DistanceTo(city2,dis));
+                connections.computeIfAbsent(city1, k -> new HashSet<>()).add(new DistanceTo(city2,dis));
 
                 //city2 -> city1 connection (assuming that we can move both directions)
                 //works the same as adding the previous connection
-                connections.computeIfAbsent(city2, k -> new TreeSet<>()).add(new DistanceTo(city1,dis));
+                connections.computeIfAbsent(city2, k -> new HashSet<>()).add(new DistanceTo(city1,dis));
             }
-
+            
             //To get the actual shortest distance possible I'll use Dijkstra's algorithm
             //1. Start from Node 0
             //2. Check for adjacent Nodes and choose Node with minimum distance. Add up the distance
@@ -66,7 +67,7 @@ public class CA3_Question10
                     shortestDistance.put(curCity,currDist); //update the distance
 
                     //check direct connections from the current city and update the queue
-                    TreeSet<DistanceTo> directConn = connections.getOrDefault(curCity, new TreeSet<>());
+                    Set<DistanceTo> directConn = connections.getOrDefault(curCity, new TreeSet<>());
 
                     //getOrDefault():
                     // -> returns the value to which the specified key is associated
