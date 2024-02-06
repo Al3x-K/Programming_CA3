@@ -26,7 +26,6 @@ public class CA3_Question10
                 //the variables in the file are in a form of:
                 //city1 city2 distance
                 String line = scanner.nextLine();
-                System.out.println(line);
                 String[] data = line.split(" ");
                 String city1 = data[0];
                 String city2 = data[1];
@@ -77,7 +76,6 @@ public class CA3_Question10
                     {
                         int newDist = currDist + conn.getDistance(); //calculate new distance
                         pQueue.offer(new DistanceTo(conn.getTarget(),newDist)); //adds connection to the queue
-                        System.out.println(curCity+" "+ conn.getTarget() + " " + newDist);
                     }
                 }
             }
