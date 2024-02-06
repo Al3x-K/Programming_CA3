@@ -14,7 +14,7 @@ public class CA3_Question8
         String equation;
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter equation: ");
-        equation = scanner.nextLine().trim();
+        equation = scanner.nextLine().trim(); //removes whitespaces from both sides of the string
 
         //evaluate the equation and print the result
         double result = evaluate(equation);

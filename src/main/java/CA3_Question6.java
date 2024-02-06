@@ -27,7 +27,7 @@ public class CA3_Question6
         //loop for processing commands
         do
         {
-            System.out.println("Enter command (buy (quantity) (price), sell (quantity) (price),quit)");
+            System.out.println("Enter command (buy (quantity) (price), sell (quantity) (price), quit)");
             System.out.print("> ");
             command = scanner.next();
 
@@ -70,7 +70,7 @@ public class CA3_Question6
             }
             else
             {
-                //selling partial shares as the available number is less than we want to sell
+                //selling partial shares as the available number is more than we want to sell
                 double costPrice = s1.getPrice(); //price per share
                 totalGain += (sellPRICE - costPrice) * sellQTY; //gain
                 s1.setQuantity(s1.getQuantity() - sellQTY); //updates the number of shares that remained

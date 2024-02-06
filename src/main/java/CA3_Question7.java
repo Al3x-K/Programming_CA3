@@ -24,7 +24,7 @@ public class CA3_Question7
         //loop for processing commands
         do
         {
-            System.out.println("Enter command (buy (symbol) (quantity) (price), sell (symbol) (quantity) (price),quit)");
+            System.out.println("Enter command (buy (symbol) (quantity) (price), sell (symbol) (quantity) (price), quit)");
             System.out.print("> ");
             command = scanner.next();
 
@@ -50,7 +50,7 @@ public class CA3_Question7
     //buying shares
     public static void buyShares(Map<String, Queue<Share>> stockMap, String symbol, int quantity, double price)
     {
-        stockMap.putIfAbsent(symbol, new LinkedList<>()); //adds a queue for the stock ife there wasn;t one before
+        stockMap.putIfAbsent(symbol, new LinkedList<>()); //adds a queue for the stock if there wasn't one before
         stockMap.get(symbol).offer(new Share(quantity,price)); //adds a share to the queue
     }
 
@@ -82,7 +82,7 @@ public class CA3_Question7
             }
             else
             {
-                //selling partial shares as the available number is less than we want to sell
+                //selling partial shares as the available number is more than we want to sell
                 double costPrice = s1.getPrice(); //price per share
                 totalGain += (sellQTY * costPrice); //gain
                 s1.setQuantity(avQty - sellQTY); //updates the number of shares that remained
