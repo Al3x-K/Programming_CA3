@@ -30,7 +30,8 @@ public class CA3_Question8
         for (int i = 0; i < equation.length(); i++) {
             char ch = equation.charAt(i);
             //skipping white spaces
-            if (ch == ' ') {
+            if (ch == ' ')
+            {
                 continue;
             }
             //handling opening brackets
@@ -76,25 +77,17 @@ public class CA3_Question8
         double num2 = numbers.pop(); //pop the 2nd number
         double num1 = numbers.pop(); //pop the 1st number
         char operator = operators.pop(); //pop the operator
-        double result = 0.0;
+        double result = switch (operator) {
+            case '+' -> num1 + num2;
+            case '-' -> num1 - num2;
+            case '*' -> num1 * num2;
+            case '/' -> num1 / num2;
+            default -> 0.0;
 
-        //Performs adequate operation based on the operator
-        //add, subtract, multiply, divide
-        switch (operator)
-        {
-            case '+':
-                result = num1 + num2;
-                break;
-            case '-':
-                result = num1 - num2;
-                break;
-            case '*':
-                result = num1 * num2;
-                break;
-            case'/':
-                result = num1 / num2;
-                break;
-        }
+            //Performs adequate operation based on the operator
+            //add, subtract, multiply, divide
+        };
+
         numbers.push(result); //push the result onto the stack
     }
 

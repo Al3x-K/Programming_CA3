@@ -1,7 +1,7 @@
 public class DistanceTo implements Comparable<DistanceTo>
 {
-    private String target;
-    private int distance;
+    private final String target;
+    private final int distance;
     public DistanceTo(String city, int dist)
     {
         target = city;

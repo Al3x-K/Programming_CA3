@@ -19,7 +19,7 @@ public class CA3_Question7
 
         Map<String,Queue<Share>> stockMap = new HashMap<>(); //map to manage shares and stock symbols
         Scanner scanner = new Scanner(System.in);
-        String command = "";
+        String command;
 
         //loop for processing commands
         do
@@ -41,7 +41,6 @@ public class CA3_Question7
             {
                 String symbol = scanner.next();
                 int sellQTY = scanner.nextInt(); //read quantity of shares
-                double sellPRICE = scanner.nextDouble(); //read the price per share
                 sellShares(stockMap,symbol,sellQTY); //sell shares
             }
         }while(!command.equalsIgnoreCase("quit")); //exits the loop when "quit" is entered
@@ -55,7 +54,7 @@ public class CA3_Question7
     }
 
     //selling shares
-    public static double sellShares(Map<String, Queue<Share>> stockMap, String symbol, int sellQTY)
+    public static void sellShares(Map<String, Queue<Share>> stockMap, String symbol, int sellQTY)
     {
         //checks if a particular kind of stock already exists
         if(!stockMap.containsKey(symbol))
@@ -90,6 +89,5 @@ public class CA3_Question7
             }
         }
         System.out.println("Total gain from selling " + symbol + " shares: " + totalGain);
-        return totalGain;
     }
 }

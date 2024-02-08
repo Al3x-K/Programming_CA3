@@ -22,7 +22,7 @@ public class CA3_Question6
 
         Queue<Share> shares = new LinkedList<>(); //creates new queue for the shares
         Scanner scanner = new Scanner(System.in);
-        String command = "";
+        String command;
 
         //loop for processing commands
         do
@@ -60,10 +60,11 @@ public class CA3_Question6
             Share s1 = shares.peek(); //gets first share in the queue
             int avQty = s1.getQuantity(); //gets the available quantity of the share
 
+            double costPrice = s1.getPrice(); //purchase price per share
+
             if(avQty <= sellQTY)
             {
                 //sell all shares from the "block"
-                double costPrice = s1.getPrice(); //purchase price per share
                 totalGain += (sellPRICE - costPrice) * avQty; //calculate gain
                 sellQTY -= avQty; //updates the quantity of the shares to sell in the queue
                 shares.poll(); // removes sold shares
@@ -71,7 +72,6 @@ public class CA3_Question6
             else
             {
                 //selling partial shares as the available number is more than we want to sell
-                double costPrice = s1.getPrice(); //price per share
                 totalGain += (sellPRICE - costPrice) * sellQTY; //gain
                 s1.setQuantity(s1.getQuantity() - sellQTY); //updates the number of shares that remained
                 sellQTY = 0; //all shares got sold

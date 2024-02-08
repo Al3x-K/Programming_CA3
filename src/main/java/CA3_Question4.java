@@ -19,7 +19,6 @@ public class CA3_Question4
         String [] tags = scanner.nextLine().split(" "); //puts tags into the array and split them by space
 
         Stack<String> stack = new Stack<>(); //a stack for opening tags
-        int index = tags.length - 1;
         for(String tag : tags) //goes through each tag in the array
         {
             stack.push(tag);
