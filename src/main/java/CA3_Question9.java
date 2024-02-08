@@ -105,7 +105,7 @@ public class CA3_Question9
         display(maze);
         System.out.println();
         System.out.println("Solving maze: ");
-        solve(3,4); //solves the maze starting in the point (3,4)
+        solve(1,6); //solves the maze starting in the point (3,4)
 
     }
 }
