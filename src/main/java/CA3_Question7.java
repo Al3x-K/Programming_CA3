@@ -41,7 +41,8 @@ public class CA3_Question7
             {
                 String symbol = scanner.next();
                 int sellQTY = scanner.nextInt(); //read quantity of shares
-                sellShares(stockMap,symbol,sellQTY); //sell shares
+                double sellPRICE = scanner.nextDouble(); //read the price per share
+                sellShares(stockMap,symbol,sellQTY,sellPRICE); //sell shares
             }
         }while(!command.equalsIgnoreCase("quit")); //exits the loop when "quit" is entered
     }
@@ -54,7 +55,7 @@ public class CA3_Question7
     }
 
     //selling shares
-    public static void sellShares(Map<String, Queue<Share>> stockMap, String symbol, int sellQTY)
+    public static void sellShares(Map<String, Queue<Share>> stockMap, String symbol, int sellQTY, double sellPRICE)
     {
         //checks if a particular kind of stock already exists
         if(!stockMap.containsKey(symbol))
@@ -75,7 +76,7 @@ public class CA3_Question7
             {
                 //sell all shares from the "block"
                 double costPrice = s1.getPrice(); //purchase price per share
-                totalGain += (sellQTY * costPrice); //calculates the gain
+                totalGain += (sellPRICE - costPrice) * sellQTY; //calculates the gain
                 sellQTY -= avQty; //updates the quantity of the shares to sell in the queue
                 shares.poll(); // removes sold shares
             }
@@ -83,7 +84,7 @@ public class CA3_Question7
             {
                 //selling partial shares as the available number is more than we want to sell
                 double costPrice = s1.getPrice(); //price per share
-                totalGain += (sellQTY * costPrice); //gain
+                totalGain += (sellPRICE - costPrice) * sellQTY; //gain
                 s1.setQuantity(avQty - sellQTY); //updates the number of shares that remained
                 sellQTY = 0; //all shares got sold
             }
